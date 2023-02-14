@@ -16,7 +16,12 @@ export default function BudgetCard({
   } else if (gray) {
     classNames.push("bg-light");
   }
-
+  const variant = [];
+  if (amount > max) {
+    variant.push("outline-danger");
+  } else {
+    variant.push("outline-primary");
+  }
   return (
     <Card className={classNames.join(" ")}>
       <Card.Body>
@@ -41,19 +46,19 @@ export default function BudgetCard({
           />
         )}
         {!hideButtons && (
-          <Stack direction='horizontal' gap='2' className='mt-4'>
-            <Button
-              variant='outline-primary'
-              className='ms-auto'
-              onClick={onAddExpenseClick}
-            >
-              Add Expense
-            </Button>
-            <Button onClick={onViewExpensesClick} variant='outline-secondary'>
-              View Expenses
-            </Button>
-          </Stack>
-        )}
+        <Stack direction='horizontal' gap='2' className='mt-4'>
+          <Button
+            variant='outline-primary'
+            className='ms-auto'
+            onClick={onAddExpenseClick}
+          >
+            Add Expense
+          </Button>
+          <Button onClick={onViewExpensesClick} variant='outline-secondary'>
+            View Expenses
+          </Button>
+        </Stack>
+      )} 
       </Card.Body>
     </Card>
   );

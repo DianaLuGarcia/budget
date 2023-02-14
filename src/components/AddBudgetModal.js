@@ -18,7 +18,7 @@ export default function AddBudgetModal({ show, handleClose }) {
 
   return (
     <>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} centered>
         <Form onSubmit={handleSubmit}>
           <Modal.Header closeButton>
             <Modal.Title id='contained-modal-title-vcenter'>

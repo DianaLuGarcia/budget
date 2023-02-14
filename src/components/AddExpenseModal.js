@@ -23,10 +23,12 @@ export default function AddExpenseModal({
   }
 
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose} centered>
       <Form onSubmit={handleSubmit}>
         <Modal.Header closeButton>
-          <Modal.Title>New Expense</Modal.Title>
+          <Modal.Title id='contained-modal-title-vcenter'>
+            New Expense
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form.Group className='mb-3' controlId='description'>
