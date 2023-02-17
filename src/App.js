@@ -1,11 +1,13 @@
 import { Button, Stack } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
+import LandingPage from "./pages/LandingPage";
 import AddBudgetModal from "./components/AddBudgetModal";
 import AddExpenseModal from "./components/AddExpenseModal";
 import BudgetCard from "./components/BudgetCard";
 import UncategorizedBudgetCard from "./components/UncategorizedBudgetCard";
 import TotalBudgetCard from "./components/TotalBudgetCard";
 import ViewExpensesModal from "./components/ViewExpensesModal";
+
 import { useState } from "react";
 import {
   UNCATEGORIZED_BUDGET_ID,
@@ -45,22 +47,24 @@ function App() {
 
   return (
     <>
-      <Container className='my-4'>
-        <Stack direction='horizontal' gap='2' className='mb-4'>
-          <h1 className='me-auto'>{date} Budget</h1>
-          <h5 className='me-4 my-4'>
+      <Container className='my-5'>
+        <span className='d-block'>
+          <h1>{date} Budget</h1>
+        </span>
+        <Stack direction='horizontal' gap='2'>
+          <br />
+          <p className=' my-3 ms-auto'>
             {date} {day}, {year}
-          </h5>
-
+          </p>
           <Button variant='primary' onClick={() => setShowAddBudgetModal(true)}>
             New Budget
           </Button>
-
           <Button variant='outline-primary' onClick={openAddExpenseModal}>
             Add Expense
           </Button>
         </Stack>
         <div
+          className='my-5'
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
@@ -114,7 +118,7 @@ function App() {
       />
       <ViewExpensesModal
         budgetId={viewExpensesModalBudgetId}
-        handleClose={() => setViewExpensesModalBudgetId(false)}
+        handleClose={() => setViewExpensesModalBudgetId()}
       />
     </>
   );

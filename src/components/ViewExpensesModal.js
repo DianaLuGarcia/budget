@@ -58,9 +58,10 @@ export default function ViewExpensesModal({ budgetId, handleClose }) {
                 <Button
                   onClick={() => deleteExpense(expense)}
                   size='sm'
-                  variant='outline-danger'
+                  variant='primary-danger'
                 >
                   &times;
+                  {/* ^ gives an X for delete button */}
                 </Button>
               </Stack>
             ))}
